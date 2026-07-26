@@ -1,0 +1,126 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #050816;
+  color: white;
+  font-family: "Black Ops One", sans-serif;
+  position: relative;
+}
+
+/* Decorative side bars */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  width: 40px;
+  height: 100%;
+  background: linear-gradient(to bottom, #00bfff, #6a5acd);
+  z-index: -1;
+
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    80% 5%,
+    100% 10%,
+    80% 15%,
+    100% 20%,
+    80% 25%,
+    100% 30%,
+    80% 35%,
+    100% 40%,
+    80% 45%,
+    100% 50%,
+    80% 55%,
+    100% 60%,
+    80% 65%,
+    100% 70%,
+    80% 75%,
+    100% 80%,
+    80% 85%,
+    100% 90%,
+    80% 95%,
+    100% 100%,
+    0 100%
+  );
+}
+
+body::before {
+  left: 0;
+}
+
+body::after {
+  right: 0;
+  transform: scaleX(-1);
+}
+
+#app {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  font-family: "Orbitron", sans-serif;
+  font-size: 3rem;
+  margin-bottom: 20px;
+  text-shadow: 0 0 15px rgba(0, 191, 255, 0.7);
+}
+
+img,
+video {
+  width: 100%;
+  max-width: 700px;
+  border-radius: 15px;
+  box-shadow: 0 0 25px rgba(0, 150, 255, 0.5);
+}
+
+p {
+  margin-top: 20px;
+  line-height: 1.7;
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 600px) {
+  body::before,
+  body::after {
+    display: none;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+}
+
+button {
+  background: #0077ff;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 25px;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #005fd1;
+  transform: scale(1.05);
+}
+
+iframe {
+  width: 100%;
+  max-width: 700px;
+  height: 450px;
+  border: none;
+  border-radius: 15px;
+}
