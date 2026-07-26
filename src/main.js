@@ -4,7 +4,7 @@ const API_KEY = import.meta.env.VITE_NASA_API_KEY;
 
 const app = document.querySelector("#app");
 
-loadImage();
+randomImage();
 
 function loadImage(date = "") {
   app.innerHTML = "<p>Loading...</p>";
@@ -16,14 +16,12 @@ function loadImage(date = "") {
   }
 
   fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      let media;
-
-      if (data.media_type === "image") {
-        media = `<img src="${data.url}" alt="${data.title}">`;
-      } else {
-        media = `<iframe src="${data.url}" allowfullscreen></iframe>`;
+    .then((response) => response.json())
+    .then((data) => {
+      // If NASA returns a video, try another random date
+      if (data.media_type !== "image") {
+        randomImage();
+        return;
       }
 
       app.innerHTML = `
@@ -33,7 +31,7 @@ function loadImage(date = "") {
 
         <p><strong>${data.date}</strong></p>
 
-        ${media}
+        <img src="${data.url}" alt="${data.title}">
 
         <p>${data.explanation}</p>
       `;
@@ -42,7 +40,7 @@ function loadImage(date = "") {
         .querySelector("#randomBtn")
         .addEventListener("click", randomImage);
     })
-    .catch(err => {
+    .catch((err) => {
       app.innerHTML = `<p>Error: ${err.message}</p>`;
     });
 }
@@ -51,8 +49,7 @@ function randomImage() {
   const start = new Date("1995-06-16").getTime();
   const end = new Date().getTime();
 
-  const randomTime =
-    start + Math.random() * (end - start);
+  const randomTime = start + Math.random() * (end - start);
 
   const randomDate = new Date(randomTime)
     .toISOString()
