@@ -20,7 +20,7 @@ function loadRandomImage() {
       }
 
       app.innerHTML = `
-        <button id="randomBtn">🎲 Random Space Image</button>
+        <button id="randomBtn">x Random Space Image</button>
 
         <h1>${apod.title}</h1>
 
@@ -39,3 +39,8 @@ function loadRandomImage() {
       app.innerHTML = `<p>Error: ${err.message}</p>`;
     });
 }
+document
+  .querySelector("#nasaBtn")
+  .addEventListener("click", () => {
+    window.open("https://www.nasa.gov/", "_blank");
+  });
