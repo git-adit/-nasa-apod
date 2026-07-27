@@ -99,3 +99,29 @@ function renderControls() {
     }
   });
 }
+
+function renderControls() {
+  const controls = document.getElementById("controls");
+  if (!controls) return;
+
+  controls.innerHTML = `
+    <button id="randomBtn">Random Space Image</button>
+    <input type="date" id="dateInput" min="${minDateStr}" max="${todayStr}" value="${selectedDate}">
+    <button id="dateBtn">Get This Date</button>
+    ${selectedDate ? `<button id="clearDateBtn">Clear Date</button>` : ""}
+  `;
+
+  document.getElementById("randomBtn").addEventListener("click", loadRandomImage);
+
+  document.getElementById("dateBtn").addEventListener("click", () => {
+    const chosen = document.getElementById("dateInput").value;
+    if (chosen) {
+      loadImageForDate(chosen);
+    }
+  });
+
+  const clearBtn = document.getElementById("clearDateBtn");
+  if (clearBtn) {
+    clearBtn.addEventListener("click", loadRandomImage);
+  }
+} 

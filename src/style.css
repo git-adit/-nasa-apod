@@ -105,3 +105,10 @@ hr {
 #dateInput {
   margin: 0 8px;
 }
+#clearDateBtn {
+  background: #6b7690;
+}
+
+#clearDateBtn:hover {
+  background: #565f78;
+}
