@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 30px;
   font-family: "Poppins", sans-serif;
-  background: linear-gradient(180deg, #0b1220, #1c2f52, #314d7a);
+  background: turquoise;
   color: #eef2ff;
 }
 
@@ -52,11 +52,11 @@ img {
 }
 
 img:hover {
-  transform: scale(1.02);
+  transform: scale(1.04);
 }
 
 #nasaBtn {
-  background: #2f8f65;
+  background: green;
 }
 
 #nasaBtn:hover {
