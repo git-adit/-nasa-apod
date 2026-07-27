@@ -6,9 +6,7 @@ const app = document.querySelector("#app");
 
 let imagesViewed = 0;
 
-// today's date, used to cap the date picker so people can't pick future dates
 const todayStr = new Date().toISOString().split("T")[0];
-// APOD started June 16, 1995 — used as the earliest allowed date
 const minDateStr = "1995-06-16";
 
 loadRandomImage();
@@ -22,15 +20,13 @@ function loadImageForDate(dateStr) {
 }
 
 function fetchApod(url, isRandom) {
-  app.innerHTML = "<p>Loading a NASA image...</p>";
+  app.innerHTML = "<p>Finding a cool NASA image...</p>";
 
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      // the random endpoint returns an array, the date endpoint returns an object
       const apod = Array.isArray(data) ? data[0] : data;
 
-      // NASA sometimes returns videos instead of pictures
       if (apod.media_type !== "image") {
         if (isRandom) {
           loadRandomImage();
@@ -51,10 +47,10 @@ function fetchApod(url, isRandom) {
 
 function render(apod) {
   app.innerHTML = `
-    <h1>NASA Astronomy Picture Viewer</h1>
+    <h1>Random NASA Explorer</h1>
 
     <p class="subtitle">
-      Get a random image from NASA's APOD collection, or pick a specific date.
+      Pick a random NASA image or choose a date to see what NASA posted that day.
     </p>
 
     <div id="controls"></div>
@@ -72,13 +68,6 @@ function render(apod) {
     <hr>
 
     <p>${apod.explanation}</p>
-
-    <p class="note">
-      I built this to practice working with a real external API and hiding an API key with
-      environment variables. The date picker was the part I was most proud of figuring out —
-      it took a bit to realize the date endpoint returns an object instead of an array like
-      the random one does.
-    </p>
   `;
 
   renderControls();
