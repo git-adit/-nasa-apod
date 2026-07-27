@@ -112,3 +112,12 @@ hr {
 #clearDateBtn:hover {
   background: #565f78;
 }
+
+#controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
