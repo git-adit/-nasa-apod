@@ -5,6 +5,7 @@ const API_KEY = import.meta.env.VITE_NASA_API_KEY;
 const app = document.querySelector("#app");
 
 let imagesViewed = 0;
+let selectedDate = "";
 
 const todayStr = new Date().toISOString().split("T")[0];
 const minDateStr = "1995-06-16";
@@ -12,15 +13,17 @@ const minDateStr = "1995-06-16";
 loadRandomImage();
 
 function loadRandomImage() {
+  selectedDate = "";
   fetchApod(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&count=1`, true);
 }
 
 function loadImageForDate(dateStr) {
+  selectedDate = dateStr;
   fetchApod(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&date=${dateStr}`, false);
 }
 
 function fetchApod(url, isRandom) {
-  app.innerHTML = "<p>Finding a cool NASA image...</p>";
+  app.innerHTML = "<p>Getting a random image...</p>";
 
   fetch(url)
     .then((response) => response.json())
@@ -38,14 +41,14 @@ function fetchApod(url, isRandom) {
       }
 
       imagesViewed++;
-      render(apod);
+      showImage(apod);
     })
     .catch((err) => {
       app.innerHTML = `<p>Something went wrong: ${err.message}</p>`;
     });
 }
 
-function render(apod) {
+function showImage(apod) {
   app.innerHTML = `
     <h1>Random NASA Explorer</h1>
 
@@ -83,7 +86,7 @@ function renderControls() {
 
   controls.innerHTML = `
     <button id="randomBtn">Random Space Image</button>
-    <input type="date" id="dateInput" min="${minDateStr}" max="${todayStr}">
+    <input type="date" id="dateInput" min="${minDateStr}" max="${todayStr}" value="${selectedDate}">
     <button id="dateBtn">Get This Date</button>
   `;
 
