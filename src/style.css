@@ -26,7 +26,7 @@ strong {
 
 p {
   color: green;
-  line-height: 1.7;
+  line-height: 2.4;
 }
 
 button {
@@ -46,7 +46,7 @@ button:hover {
 
 img {
   border: 6px solid #f3f6ff;
-  border-radius: 18px;
+  border-radius: 20px;
   box-shadow: 0 0 20px rgba(255,255,255,0.18);
   transition: transform 0.25s;
 }
