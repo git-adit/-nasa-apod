@@ -23,7 +23,7 @@ function loadImageForDate(dateStr) {
 }
 
 function fetchApod(url, isRandom) {
-  app.innerHTML = "<p>Getting a random image...</p>";
+  app.innerHTML = "<p>Loading NASA image...</p>";
 
   fetch(url)
     .then((response) => response.json())
@@ -50,7 +50,7 @@ function fetchApod(url, isRandom) {
 
 function showImage(apod) {
   app.innerHTML = `
-    <h1>Random NASA Explorer</h1>
+    <h1>NASA Photo Explorer</h1>
 
     <p class="subtitle">
       Pick a random NASA image or choose a date to see what NASA posted that day.
@@ -58,7 +58,7 @@ function showImage(apod) {
 
     <div id="controls"></div>
 
-    <p><strong>Images Viewed:</strong> ${imagesViewed}</p>
+    <p><strong>You've viewed ${imagesViewed} images this session.</strong></p>
 
     <button id="nasaBtn">Visit NASA Website</button>
 

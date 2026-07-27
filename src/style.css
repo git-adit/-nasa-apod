@@ -97,3 +97,11 @@ hr {
   border-top: 2px solid rgba(255,255,255,0.2);
   margin: 25px 0;
 }
+
+#controls {
+  margin: 20px 0;
+}
+
+#dateInput {
+  margin: 0 8px;
+}
