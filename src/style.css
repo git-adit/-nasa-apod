@@ -17,7 +17,14 @@ body {
 }
 
 h1 {
+  font-family: "Orbitron", sans-serif;
   color: #ffe08a;
+  letter-spacing: 1px;
+}
+
+h2 {
+  color: white;
+  margin-top: 22px;
 }
 
 strong {
@@ -25,8 +32,21 @@ strong {
 }
 
 p {
-  color: green;
+  color: #d8e4ff;
   line-height: 2.4;
+}
+
+.subtitle {
+  color: #d8f4ff;
+  margin-bottom: 18px;
+  font-size: 17px;
+}
+
+.note {
+  color: #a9b8d6;
+  font-size: 14px;
+  font-style: italic;
+  margin-top: 25px;
 }
 
 button {
@@ -44,6 +64,23 @@ button:hover {
   transform: translateY(-2px);
 }
 
+#nasaBtn {
+  background: #2b8c59;
+  margin-bottom: 25px;
+}
+
+#nasaBtn:hover {
+  background: #22714a;
+}
+
+#dateInput {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  margin-left: 8px;
+  font-family: "Poppins", sans-serif;
+}
+
 img {
   border: 6px solid #f3f6ff;
   border-radius: 20px;
@@ -55,35 +92,8 @@ img:hover {
   transform: scale(1.04);
 }
 
-#nasaBtn {
-  background: green;
-}
-
-#nasaBtn:hover {
-  background: #267453;
-}
-.subtitle {
-  color: #d8f4ff;
-  margin-bottom: 18px;
-  font-size: 17px;
-}
-
-h2 {
-  color: white;
-  margin-top: 22px;
-}
-
 hr {
   border: none;
   border-top: 2px solid rgba(255,255,255,0.2);
   margin: 25px 0;
-}
-
-#nasaBtn {
-  background: #2b8c59;
-  margin-bottom: 25px;
-}
-
-#nasaBtn:hover {
-  background: #22714a;
 }
